@@ -1,0 +1,168 @@
+\documentclass{beamer}
+\mode<presentation> {
+%\usetheme{Madrid}
+%\usetheme{default}
+\usepackage{color}
+\definecolor{bottomcolour}{rgb}{0.21,0.11,0.21}
+\definecolor{middlecolour}{rgb}{0.21,0.11,0.21}
+\setbeamercolor{structure}{fg=white}
+\setbeamertemplate{frametitle}[default]%[center]
+\setbeamercolor{normal text}{bg=black, fg=white}
+\setbeamertemplate{background canvas}[vertical shading]
+[bottom=bottomcolour, middle=middlecolour, top=black]
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{navigation symbols}{} %no nav symbols
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!50!red!50!blue!100!green}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!5!white!10!bg,fg=white}
+\setbeamertemplate{navigation symbols}{}
+}
+
+\usepackage{graphicx} 
+\usepackage{booktabs} 
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}  
+\usepackage{geometry}     
+\usepackage[francais]{babel} 
+\usepackage{eurosym}
+\usepackage{verbatim}
+\usepackage{ragged2e}
+\justifying
+
+\input{cc_beamer}
+
+\title[TextSecure]{TextSecure} 
+\author{Genma}
+
+\begin{document}
+
+%% Titlepage
+\begin{frame}
+	\titlepage
+	\vfill
+	\begin{center}
+		\CcGroupByNcSa{0.83}{0.95ex}\\[2.5ex]
+		{\tiny\CcNote{\CcLongnameByNcSa}}
+		\vspace*{-2.5ex}
+	\end{center}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{À quoi sert TextSecure ? }
+
+\justifying{
+C'est un logiciel de messagerie instantanée, conçu pour être très simple d'usage, pour servir de remplaçant « tel quel » aux logiciels SMS actuels, tout en offrant une meilleure protection de la vie privée, dans certains cas. 
+\begin{itemize}
+\item TextSecure remplace l'application SMS par défaut.
+\item TextSecure offre un bon compromis entre facilité d'usage et sécurité.
+\end{itemize}
+}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{TextSecure du point de vue utilisateur}
+
+ \justifying{
+L'utilisateur s'en sert comme de l'outil SMS par défaut. \\~\\
+Le principal changement est que certains messages vont être marqués d'un cadenas : 
+\begin{itemize}
+\item 
+si le correspondant utilise également TextSecure, les messages sont chiffrés automatiquement avec sa clé.
+\end{itemize}
+Si on est simple utilisateur, on a donc un peu plus de vie privée, et on en aura de plus en plus au fur et à mesure que TextSecure se répand.
+}
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Comment fonctionne TextSecure?}
+
+ \justifying{
+TextSecure peut utiliser deux transports différents le SMS et la liaison « données » du smartphone (ce second transport se nomme PUSH dans la terminologie TextSecure, et est utilisé par défaut pour les correspondants qui ont également TextSecure). 
+\\~\\
+Le mode PUSH peut être intéressant si on a un quota SMS limité mais pas en Internet, et le mode SMS dans le cas contraire. 
+\\~\\
+Les messages apparaissent en vert traditionnel quand ils ont été transportés en SMS et en bleu autrement.
+}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Chiffrement de tous les SMS}
+
+ \justifying{
+TextSecure peut aussi chiffrer toute la base des SMS reçus et stockés. Ainsi, même si on vole votre téléphone, vos communications resteront sûres. 
+\\~\\Attention : si vous oubliez la phrase de passe, tout est fichu. Pensez à sauvegarder.
+}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Les limites de TextSecure}
+
+ \justifying{
+Lles métadonnées de la communication sont en clair. Des tiers peuvent donc savoir qui écrit à qui et quand, même si le contenu des messages est chiffré. 
+\\~\\
+Les metadata sont connues d'OpenWhispe, si on utilise PUSH 
+\\~\\
+ou de l'opérateur mobile, si on utilise le SMS traditionnel.
+}
+
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Peut-on faire confiance à TextSecure? }
+
+ \justifying{
+TextSecure est un logiciel libre : le code est disponible, et des experts en sécurité l'ont déjà lu et personne n'a encore trouvé de défaut significatif. 
+\\~\\
+Le code du serveur utilisé par OpenWhisper est également disponible en ligne.
+\\~\\
+Mais cela s'avère moins utile car on ne peut pas vérifier que le serveur effectif exécute bien ce code.
+}
+
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Comment valider sa correspondance?}
+
+ \justifying{
+À la première communication, TextSecure fait confiance, c'est un système, dit TOFU (Trust On First Use), qui a l'avantage d'être trivial d'utilisation. 
+\\~\\
+Si le correspondant réinitialise sa clé mais, d'après la documentation, TextSecure vous prévient.
+\\~\\
+Si on veut, on peut toujours vérifier, lors d'une rencontre AFK, la clé de son correspondant, soit en la lisant à l'écran, soit via des codes QR. 
+}
+
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Les limites de TextSecure}
+
+ \justifying{
+Aucun moyen d'enregistrer le fait qu'on a vérifié, afin, par exemple, d'afficher les messages ultérieurs d'une couleur différente si le correspondant a ainsi été solidement authentifié. 
+\\~\\
+On ne peut pas envoyer un message à plusieurs personnes simplement (il faut d'abord créer un groupe statique).
+}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{En savoir plus?}
+ \justifying{
+Pour aller plus loin, la société qui développe TextSecure, OpenWhisper, a une bonne FAQ.
+}
+\end{frame}
+
+\end{document}
